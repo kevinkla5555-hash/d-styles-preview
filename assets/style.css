@@ -662,3 +662,28 @@ html.js [data-reveal="line"].in{transform:none}
 .totop{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:13px;letter-spacing:.06em}
 .totop::before{content:"";width:28px;height:1px;background:currentColor;transition:width .4s var(--ease)}
 .totop:hover::before{width:48px}
+
+/* ---------- video's (laden pas na klik, zonder cookies) ---------- */
+.video-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px)}
+.video-grid.one{grid-template-columns:1fr;max-width:960px}
+@media (max-width:760px){.video-grid{grid-template-columns:1fr}}
+.video{margin:0}
+.video-play{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;background:var(--velvet);overflow:hidden;cursor:pointer}
+.video-play img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:transform 1.2s var(--ease),opacity .4s}
+.video-play:hover img{transform:scale(1.04);opacity:1}
+.play-ring{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;border:1px solid rgba(255,255,255,.8);background:rgba(58,30,37,.55);backdrop-filter:blur(6px);color:#fff;display:flex;align-items:center;justify-content:center;transition:transform .4s var(--ease),background .3s}
+.play-ring svg{margin-left:3px}
+.video-play:hover .play-ring{transform:scale(1.1);background:var(--brass)}
+.video iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#000}
+.video figcaption{font-size:14px;color:var(--taupe);margin-top:12px}
+.on-dark .video figcaption{color:rgba(250,249,248,.7)}
+
+/* ---------- sfeerfoto's: werken aan de wand ---------- */
+.room-strip{display:flex;gap:clamp(14px,2vw,28px);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:thin;scrollbar-color:var(--brass) transparent}
+.room-strip a{flex:0 0 clamp(260px,30vw,460px);scroll-snap-align:start;text-decoration:none;display:block}
+.room-strip img{aspect-ratio:4/3;width:100%;object-fit:cover;background:var(--velvet);transition:transform 1s var(--ease)}
+.room-strip a:hover img{transform:scale(1.02)}
+.room-strip span{display:block;margin-top:10px;font:400 18px/1.2 var(--serif)}
+.room-hero{margin:0}
+.room-hero img{width:100%;aspect-ratio:16/9;object-fit:cover;max-height:80vh;background:var(--velvet)}
+.room-hero figcaption{font-size:14px;color:var(--taupe);margin-top:12px}

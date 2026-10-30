@@ -251,3 +251,14 @@
     new IntersectionObserver(([en]) => { nearFoot = en.isIntersecting; update(); }).observe($("footer"));
   }
 })();
+
+/* ---------- video's: pas laden na klik (geen cookies vooraf) ---------- */
+document.querySelectorAll(".video[data-video]").forEach(fig => {
+  const btn = fig.querySelector(".video-play");
+  btn.addEventListener("click", () => {
+    const f = document.createElement("iframe");
+    f.src = `https://www.youtube-nocookie.com/embed/${fig.dataset.video}?autoplay=1&rel=0&modestbranding=1`;
+    f.allow = "autoplay; fullscreen; picture-in-picture"; f.title = btn.getAttribute("aria-label").replace("Video afspelen: ", "");
+    btn.replaceWith(f);
+  });
+});
